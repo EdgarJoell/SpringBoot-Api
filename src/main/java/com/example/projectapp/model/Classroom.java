@@ -1,9 +1,11 @@
 package com.example.projectapp.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "classes")
@@ -59,4 +61,9 @@ public class Classroom {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    @OneToMany(mappedBy = "category", orphanRemoval = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Student> studentList;
+
 }
