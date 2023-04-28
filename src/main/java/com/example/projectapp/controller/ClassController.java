@@ -1,15 +1,16 @@
 package com.example.projectapp.controller;
 
 import com.example.projectapp.repository.ClassRepository;
+import com.example.projectapp.service.ClassService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/classes/")
+@RequestMapping(path = "/api/")
 public class ClassController {
 
-    public ClassRepository classRepository;
+    public ClassService classService;
 
     @GetMapping(path = "/hello-world/")
     public String helloWorld() {
