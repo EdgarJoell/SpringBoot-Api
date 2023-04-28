@@ -20,4 +20,10 @@ public class Class {
 
     public Class() {
     }
+
+    public Class(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 }
