@@ -48,7 +48,6 @@ public class Teacher {
     }
 
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "classroom_id")
+    @OneToOne(mappedBy = "teacher")
     private Classroom classroom;
 }
