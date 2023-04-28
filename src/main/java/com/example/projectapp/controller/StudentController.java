@@ -1,6 +1,6 @@
 package com.example.projectapp.controller;
 
-import com.example.projectapp.repository.StudentRepository;
+import com.example.projectapp.service.StudentService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/api/students/")
 public class StudentController {
 
-    private StudentRepository studentRepository;
+    private StudentService studentService;
 }

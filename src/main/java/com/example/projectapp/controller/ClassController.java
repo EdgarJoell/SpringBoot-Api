@@ -1,13 +1,12 @@
 package com.example.projectapp.controller;
 
-import com.example.projectapp.repository.ClassRepository;
 import com.example.projectapp.service.ClassService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/")
+@RequestMapping(path = "/api/classes/")
 public class ClassController {
 
     public ClassService classService;
