@@ -1,5 +1,6 @@
 package com.example.projectapp.service;
 
+import com.example.projectapp.exception.InformationExistsException;
 import com.example.projectapp.model.Classroom;
 import com.example.projectapp.repository.ClassroomRepository;
 import org.springframework.stereotype.Service;
@@ -13,5 +14,14 @@ public class ClassroomService {
 
     public List<Classroom> getClassrooms () {
         return classroomRepository.findAll();
+    }
+
+    public Classroom createClassroom(Classroom classroomObject) {
+        Classroom classroom = classroomRepository.findByName(classroomObject.getName());
+        if(classroom != null) {
+            throw new InformationExistsException("A Classroom with name " + classroom.getName() + " already exists.");
+        } else {
+            return classroomRepository.save(classroom);
+        }
     }
 }
