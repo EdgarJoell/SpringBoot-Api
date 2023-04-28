@@ -17,4 +17,7 @@ public class Class {
 
     @Column
     private String description;
+
+    public Class() {
+    }
 }
