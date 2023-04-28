@@ -2,9 +2,7 @@ package com.example.projectapp.controller;
 
 import com.example.projectapp.model.Teacher;
 import com.example.projectapp.service.TeacherService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,5 +15,10 @@ public class TeacherController {
     @GetMapping(path = "/teachers/")
     public List<Teacher> getTeachers() {
         return teacherService.getTeachers();
+    }
+
+    @PostMapping(path = "/teachers/")
+    public Teacher createTeacher(@RequestBody Teacher teacherObject) {
+        return teacherService.createTeacher(teacherObject);
     }
 }
