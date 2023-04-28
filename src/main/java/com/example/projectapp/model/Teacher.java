@@ -1,5 +1,7 @@
 package com.example.projectapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -44,4 +46,9 @@ public class Teacher {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
 }
