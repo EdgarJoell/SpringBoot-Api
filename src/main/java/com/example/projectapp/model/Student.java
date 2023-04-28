@@ -1,11 +1,8 @@
 package com.example.projectapp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -78,6 +75,7 @@ public class Student {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
+
 }

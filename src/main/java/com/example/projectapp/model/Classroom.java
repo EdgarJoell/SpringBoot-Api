@@ -61,7 +61,7 @@ public class Classroom {
                 '}';
     }
 
-    @OneToMany(mappedBy = "category", orphanRemoval = true)
+    @OneToMany(mappedBy = "classroom", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Student> studentList;
 
