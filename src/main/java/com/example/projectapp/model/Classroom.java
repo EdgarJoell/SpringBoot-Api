@@ -66,4 +66,7 @@ public class Classroom {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Student> studentList;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+    private Teacher teacher;
 }
