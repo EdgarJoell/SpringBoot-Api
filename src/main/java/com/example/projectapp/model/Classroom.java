@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "classes")
-public class Class {
+public class Classroom {
     @Id
     @Column
     private Long id;
@@ -18,10 +18,10 @@ public class Class {
     @Column
     private String description;
 
-    public Class() {
+    public Classroom() {
     }
 
-    public Class(Long id, String name, String description) {
+    public Classroom(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -53,7 +53,7 @@ public class Class {
 
     @Override
     public String toString() {
-        return "Class{" +
+        return "Classroom{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
