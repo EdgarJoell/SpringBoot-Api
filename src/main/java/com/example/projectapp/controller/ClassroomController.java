@@ -2,6 +2,7 @@ package com.example.projectapp.controller;
 
 import com.example.projectapp.model.Classroom;
 import com.example.projectapp.service.ClassroomService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,11 @@ import java.util.List;
 public class ClassroomController {
 
     public ClassroomService classroomService;
+
+    @Autowired
+    public void setClassroomRepository(ClassroomService classroomService) {
+        this.classroomService = classroomService;
+    }
 
     @GetMapping(path = "/hello-world/")
     public String helloWorld() {
