@@ -59,4 +59,13 @@ public class StudentService {
             throw new InformationNotFoundException("Student with id " + studentId + " does not exist.");
         }
     }
+
+    public void deleteStudent(Long studentId) {
+        Student student = studentRepository.findById(studentId).get();
+        if(student != null) {
+            studentRepository.delete(student);
+        } else {
+            throw new InformationNotFoundException("Student with id " + studentId + " does not exist.");
+        }
+    }
 }
