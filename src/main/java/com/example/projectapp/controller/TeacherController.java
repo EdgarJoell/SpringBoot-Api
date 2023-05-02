@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/teachers/")
@@ -26,5 +27,10 @@ public class TeacherController {
     @PostMapping(path = "/teachers/")
     public Teacher createTeacher(@RequestBody Teacher teacherObject) {
         return teacherService.createTeacher(teacherObject);
+    }
+
+    @GetMapping(path = "/teachers/{teacherId}/")
+    public Optional<Teacher> getTeacher(@PathVariable Long teacherId) {
+        return teacherService.getTeacher(teacherId);
     }
 }
