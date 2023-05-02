@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/classrooms/")
@@ -31,5 +32,20 @@ public class ClassroomController {
     @PostMapping(path="/classrooms/")
     public Classroom createClassroom(@RequestBody Classroom classroomObject ) {
         return classroomService.createClassroom(classroomObject);
+    }
+
+    @GetMapping(path = "/classrooms/{classroomId}/")
+    public Optional<Classroom> getClassroom(@PathVariable Long classroomId) {
+        return classroomService.getClassroom(classroomId);
+    }
+
+    @PutMapping(path = "/classrooms/{classroomId}")
+    public Classroom updateClassroom(@PathVariable Long classroomId, @RequestBody Classroom classroomObject) {
+        return classroomService.updateClassroom(classroomId, classroomObject);
+    }
+
+    @DeleteMapping(path = "/classrooms/{classroomId}")
+    public void deleteClassroom(@PathVariable Long classroomId) {
+        classroomService.deleteClassroom(classroomId);
     }
 }

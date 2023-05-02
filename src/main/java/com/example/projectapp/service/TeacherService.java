@@ -2,7 +2,6 @@ package com.example.projectapp.service;
 
 import com.example.projectapp.exception.InformationExistsException;
 import com.example.projectapp.exception.InformationNotFoundException;
-import com.example.projectapp.model.Student;
 import com.example.projectapp.model.Teacher;
 import com.example.projectapp.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
