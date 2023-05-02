@@ -33,4 +33,9 @@ public class StudentController {
     public Optional<Student> getStudent(@PathVariable Long studentId) {
         return studentService.getStudent(studentId);
     }
+
+    @PutMapping(path = "/students/{studentId}")
+    public Student updateStudent(@PathVariable Long studentId, @RequestBody Student studentObject) {
+        return studentService.updateStudent(studentId, studentObject);
+    }
 }

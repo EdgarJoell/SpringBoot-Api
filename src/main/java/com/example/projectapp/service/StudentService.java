@@ -41,4 +41,22 @@ public class StudentService {
             throw new InformationNotFoundException("Student with id " + studentId + " does not exist.");
         }
     }
+
+    public Student updateStudent(Long studentId, Student studentObject) {
+        Optional<Student> student = studentRepository.findById(studentId);
+        if(student.isPresent()) {
+            if(student.get().getName().equals(studentObject.getName())) {
+                throw new InformationExistsException("This name already exists.");
+            } else {
+                Student updateStudent = studentRepository.findById(studentId).get();
+                updateStudent.setHouse(studentObject.getHouse());
+                updateStudent.setName(studentObject.getName());
+                updateStudent.setYear(studentObject.getYear());
+                return studentRepository.save(updateStudent);
+            }
+
+        } else {
+            throw new InformationNotFoundException("Student with id " + studentId + " does not exist.");
+        }
+    }
 }
