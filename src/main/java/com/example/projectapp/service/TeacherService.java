@@ -41,4 +41,14 @@ public class TeacherService {
             throw new InformationNotFoundException("Teacher with id " + teacherId + " does not exist.");
         }
     }
+
+    public Teacher updateTeacher(Long teacherId, Teacher teacherObject) {
+        Teacher teacher = teacherRepository.findById(teacherId).get();
+        if(teacher != null) {
+            teacher.setName(teacherObject.getName());
+            return teacherRepository.save(teacher);
+        } else {
+            throw new InformationNotFoundException("Teacher with id " + teacherId + " does not exits.");
+        }
+    }
 }

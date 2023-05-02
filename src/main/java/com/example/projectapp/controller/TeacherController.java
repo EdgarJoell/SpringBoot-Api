@@ -33,4 +33,9 @@ public class TeacherController {
     public Optional<Teacher> getTeacher(@PathVariable Long teacherId) {
         return teacherService.getTeacher(teacherId);
     }
+
+    @PutMapping(path = "/teachers/{teacherId}")
+    public Teacher updateTeacher(@PathVariable Long teacherId, @RequestBody Teacher teacherObject) {
+        return teacherService.updateTeacher(teacherId, teacherObject);
+    }
 }
