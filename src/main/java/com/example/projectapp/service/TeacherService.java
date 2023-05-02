@@ -2,6 +2,7 @@ package com.example.projectapp.service;
 
 import com.example.projectapp.exception.InformationExistsException;
 import com.example.projectapp.exception.InformationNotFoundException;
+import com.example.projectapp.model.Student;
 import com.example.projectapp.model.Teacher;
 import com.example.projectapp.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,15 @@ public class TeacherService {
             return teacherRepository.save(teacher);
         } else {
             throw new InformationNotFoundException("Teacher with id " + teacherId + " does not exits.");
+        }
+    }
+
+    public void deleteTeacher(Long teacherId) {
+        Teacher teacher = teacherRepository.findById(teacherId).get();
+        if(teacher != null) {
+            teacherRepository.delete(teacher);
+        } else {
+            throw new InformationNotFoundException("Student with id " + teacherId + " does not exist.");
         }
     }
 }
